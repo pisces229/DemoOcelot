@@ -1,0 +1,93 @@
+{
+  "Routes": [
+    //{
+    //  "UpstreamPathTemplate": "/",
+    //  "UpstreamHttpMethod": [ "Get" ],
+    //  "DownstreamScheme": "https",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "10.10.95.30",
+    //      "Port": 443
+    //    }
+    //  ],
+    //  "DownstreamPathTemplate": "/api/test/success",
+    //  "QoSOptions": {
+    //    "ExceptionsAllowedBeforeBreaking": 0,
+    //    "DurationOfBreak": 0,
+    //    "TimeoutValue": 0
+    //  },
+    //  "DangerousAcceptAnyServerCertificateValidator": true
+    //},
+    {
+      "UpstreamPathTemplate": "/test/{id}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "jsonplaceholder.typicode.com",
+          "Port": 443
+        }
+      ],
+      "DownstreamPathTemplate": "/todos/{id}",
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 0,
+        "DurationOfBreak": 0,
+        "TimeoutValue": 0
+      }
+      //"DangerousAcceptAnyServerCertificateValidator": true
+    },
+    {
+      "UpstreamPathTemplate": "/first",
+      "UpstreamHttpMethod": [ "Get" ],
+      "UpstreamHeaderTransform": {
+        "UpstreamHeaderTransform": "DemoOcelot.Geteway"
+      },
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44311
+        }
+      ],
+      "DownstreamPathTemplate": "/api/default",
+      //"DownstreamHttpMethod": "POST",
+      "DownstreamHeaderTransform": {
+        "DownstreamHeaderTransform": "DemoOcelot.Geteway"
+      },
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 0,
+        "DurationOfBreak": 0,
+        "TimeoutValue": 0
+      }
+      //"DangerousAcceptAnyServerCertificateValidator": true
+    },
+    {
+      "UpstreamPathTemplate": "/second",
+      "UpstreamHttpMethod": [ "Get" ],
+      "UpstreamHeaderTransform": {
+        "UpstreamHeaderTransform": "DemoOcelot.Geteway"
+      },
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44312
+        }
+      ],
+      "DownstreamPathTemplate": "/api/default",
+      //"DownstreamHttpMethod": "POST",
+      "DownstreamHeaderTransform": {
+        "DownstreamHeaderTransform": "DemoOcelot.Geteway"
+      },
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 0,
+        "DurationOfBreak": 0,
+        "TimeoutValue": 0
+      }
+      //"DangerousAcceptAnyServerCertificateValidator": true
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:44310"
+  }
+}
